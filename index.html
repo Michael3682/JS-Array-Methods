@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #292929;
+        }
+
+        span {
+            font-family: Consolas, "courier new";
+            color: crimson;
+            background-color: #f1f1f1;
+            padding: 2px;
+            font-size: 105%;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+
+            & nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 50px;
+
+                & h1 {
+                    font-size: 2em;
+                }
+            }
+
+            & .contents {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 10px;
+                width: 100%;
+                padding: 50px;
+                justify-content: center;
+
+                & .card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 20px;
+                    background-color: rgba(133, 132, 132, 0.2);
+                    box-shadow: 0 5px 5px 0 rgba(134, 136, 163, 0.37);
+                    border-radius: 10px;
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+
+                    & .code {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #242938;
+                        padding: 10px;
+                        color: white;
+
+                        & span {
+                            color: rgb(69, 117, 248);
+                            background-color: transparent;
+                        }
+
+                        & .string {
+                            color: rgb(238, 160, 108);
+                        }
+                    }
+
+                    & .result {
+                        padding: 10px;
+                        background-color: white;
+                        border: 1px solid rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <h1>JavaScript Array Methods</h1>
+        </nav>
+        <div class="contents">
+            <div class="card">
+                <h2>JavaScript Array length</h2>
+                <p>The <span>length</span> property returns the length (size) of an array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>let size = fruits.length;</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">4</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array toString()</h2>
+                <p>The JavaScript method <span>toString()</span> converts an array to a string of (comma separated)
+                    array values.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>document.getElementById(<span class="string">"demo"</span>).innerHTML = fruits.toString();</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Apple,Mango</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array at()</h2>
+                <p>The <span>at()</span> method returns an indexed element from an array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>let fruit = fruits.at(2);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Apple</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array join()</h2>
+                <p>The <span>join()</span> method also joins all array elements into a string.</p>
+                <p>It behaves just like <span>toString()</span>, but in addition you can specify the separator.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>document.getElementById(<span class="string">"demo"</span>).innerHTML = fruits.join(" * ");</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana * Orange * Apple * Mango</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array pop()</h2>
+                <p>The <span>pop()</span> method removes the last element from an array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.pop();</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Apple</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array push()</h2>
+                <p>The <span>push()</span> method adds a new element to an array (at the end).</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.push(<span class="string">"Kiwi"</span>);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Apple,Mango,Kiwi</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array shift()</h2>
+                <p>The <span>shift()</span> method removes the first array element and "shifts" all other elements to a
+                    lower index.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.shift();</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Orange,Apple,Mango</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array unshift()</h2>
+                <p>The <span>unshift()</span> method adds a new element to an array (at the beginning), and "unshifts"
+                    older elements.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.unshift(<span class="string">"Lemon"</span>);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Lemon,Banana,Orange,Apple,Mango</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array delete()</h2>
+                <p>Using <span>delete()</span> leaves undefined holes in the array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>delete fruits[0];</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">undefined,Orange,Apple,Mango</code>
+                <p>It's better to use <span>pop()</span> or <span>shift()</span> instead.</p>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array concat()</h2>
+                <p>The <span>concat()</span> method creates a new array by merging (concatenating) existing arrays.</p>
+                <div class="code">
+                    <code><span>const</span> fruits1 = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>];</code>
+                    <code><span>const</span> fruits2 = [<span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code><span>const</span> fruitsConcat = fruits1.concat(fruits2);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Apple,Mango</code>
+                <p>The <span>concat()</span> method does not change the existing arrays. It always returns a new array.
+                </p>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array copyWithin()</h2>
+                <p>The <span>copyWithin()</span> method copies array elements to another position in an array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.copyWithin(2, 0);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Banana,Orange</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array flat()</h2>
+                <p>The <span>flat()</span> method creates a new array with sub-array elements concatenated to a
+                    specified depth.</p>
+                <div class="code">
+                    <code><span>const</span> myArr = [[1,2],[3,4],[5,6]];</code>
+                    <code><span>const</span> newArr = myArr.flat();</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">1,2,3,4,5,6</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array splice()</h2>
+                <p>The <span>splice()</span> method can be used to add new items to an array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code>fruits.splice(2, 0, <span class="string">"Lemon"</span>, <span class="string">"Kiwi"</span>);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Banana,Orange,Lemon,Kiwi,Apple,Mango</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array toSpliced()</h2>
+                <p>The <span>toSpliced()</span> method as a safe way to splice an array without altering the original
+                    array.</p>
+                <p>The difference between the new <span>toSpliced()</span> method and the old <span>splice()</span>
+                    method is that the new method creates a new array, keeping the original array unchanged, while the
+                    old method altered the original array.</p>
+                <div class="code">
+                    <code><span>const</span> months = [<span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Apr"</span>];</code>
+                    <code><span>const</span> spliced = months.toSpliced(0, 1);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Feb,Mar,Apr</code>
+            </div>
+            <div class="card">
+                <h2>JavaScript Array slice()</h2>
+                <p>The <span>slice()</span> method slices out a piece of an array into a new array.</p>
+                <div class="code">
+                    <code><span>const</span> fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</code>
+                    <code><span>const</span> citrus = fruits.slice(1);</code>
+                </div>
+                <p>Result:</p>
+                <code class="result">Orange,Lemon,Apple,Mango</code>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
